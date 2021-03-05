@@ -22,11 +22,8 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/single/:theid">
+						<Route exact path="/single/:uid">
 							<Single />
-						</Route>
-						<Route>
-							<h1>Not found!</h1>
 						</Route>
 					</Switch>
 					<Footer />
