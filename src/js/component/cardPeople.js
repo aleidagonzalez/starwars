@@ -19,7 +19,7 @@ export const CardPeople = props => {
 	}, []);
 
 	return (
-		<div className="card ">
+		<div className="card">
 			<img
 				className="card-img-top"
 				src="https://cdn.pixabay.com/photo/2019/12/27/05/26/christmas-stocking-4721704_960_720.jpg"
@@ -30,14 +30,20 @@ export const CardPeople = props => {
 				<p className="card-text">{cardDetails.description ? cardDetails.description : "description"}</p>
 				<p className="card-text">{cardDetails.properties ? cardDetails.properties.name : "name"}</p>
 				<a href={"/single/" + cardDetails.uid} className="btn btn-primary">
-					Learn More!
+					Lee mas
 				</a>
 				<button
 					type="button"
 					className="btn btn-outline-warning ml-4"
-					onClick={() => actions.setFavorites(props.name)}
+					onClick={() => {
+						if (store.favorites.includes(props.name)) {
+							actions.deleteFavorites(store.favorites.indexOf(props.name));
+						} else {
+							actions.setFavorites(props.name);
+						}
+					}}
 					data-toggle="button">
-					<i className="far fa-heart " />
+					<i className="far fa-heart" />
 				</button>
 			</div>
 		</div>
